@@ -1,0 +1,14 @@
+{
+    "geode": "4.10.0",
+    "gd": {
+        "win": "2.2074",
+        "android": "2.2074",
+        "mac": "2.2074",
+        "ios": "2.2074"
+    },
+    "id": "prevter.rock-test",
+    "name": "rock-test",
+    "version": "1.0.0",
+    "developer": "prevter",
+    "description": "Testing UI components"
+}
