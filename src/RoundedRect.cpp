@@ -228,17 +228,23 @@ void main() {
             return false;
         }
 
+        auto shader = util::getShaderProgram(
+            "rock_rounded_rect",
+            shaders::ROUNDED_RECT_VERT_SHADER,
+            shaders::ROUNDED_RECT_FRAG_SHADER
+        );
+
+        if (!shader) {
+            return false;
+        }
+
+        this->setShaderProgram(shader);
+
         this->setAnchorPoint({0.5f, 0.5f});
         this->setContentSize(size);
         this->setColor({color.r, color.g, color.b});
         this->setOpacity(color.a);
         m_radii = radii;
-
-        this->setShaderProgram(util::getShaderProgram(
-            "rock_rounded_rect",
-            shaders::ROUNDED_RECT_VERT_SHADER,
-            shaders::ROUNDED_RECT_FRAG_SHADER
-        ));
 
         m_radiiLoc = m_pShaderProgram->getUniformLocationForName("u_radii");
         m_sizeLoc = m_pShaderProgram->getUniformLocationForName("u_size");
@@ -439,11 +445,17 @@ void main() {
 
     bool RoundedSprite::init(Radii const& radii) {
         m_radii = radii;
-        this->setShaderProgram(util::getShaderProgram(
+        auto shader = util::getShaderProgram(
             "rock_rounded_sprite",
             shaders::ROUNDED_SPRITE_VERT_SHADER,
             shaders::ROUNDED_SPRITE_FRAG_SHADER
-        ));
+        );
+
+        if (!shader) {
+            return false;
+        }
+
+        this->setShaderProgram(shader);
 
         m_radiiLoc = m_pShaderProgram->getUniformLocationForName("u_radii");
         m_sizeLoc = m_pShaderProgram->getUniformLocationForName("u_size");

@@ -16,15 +16,20 @@ class $modify(MyMenuLayer, MenuLayer) {
             {200.f, 100.f}
         );
 
+        if (roundedRect) {
+            roundedRect->setPosition(winSize*0.5f - ccp(150, 0));
+            this->addChild(roundedRect);
+        }
+
         auto roundedSprite = RoundedSprite::create(
             "groundSquare_15_001.png",
             Radii(30.f, 10.f, 50.f, 5.f)
         );
 
-        roundedRect->setPosition(winSize*0.5f - ccp(150, 0));
-        roundedSprite->setPosition(winSize*0.5f + ccp(150, 0));
-        this->addChild(roundedRect);
-        this->addChild(roundedSprite);
+        if (roundedSprite) {
+            roundedSprite->setPosition(winSize*0.5f + ccp(150, 0));
+            this->addChild(roundedSprite);
+        }
 
         return true;
     }
