@@ -1,6 +1,8 @@
 #include <rock/Utils.hpp>
 
 #include <Geode/Result.hpp>
+#include <Geode/loader/Log.hpp>
+#include <Geode/utils/general.hpp>
 
 namespace rock::util {
     static geode::Result<GLuint> compileShader(GLenum type, char const* src) {
